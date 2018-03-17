@@ -1,0 +1,16 @@
+Testan a Git
+
+--> Para fazer
+* comparar a função do get '/' do index_3_c_template com o index atual
+
+--> Dúvidas
+* dados os seguintes caminhos
+\Slim\App
+\Slim\Views\PhpRenderer
+
+* O que os métodos get de app fazem?
+
+Esses aí, por exemplo, são guardados no namespace?
+
+* no index, a variável container é um vetor com as propriedades do obj $app?
+
