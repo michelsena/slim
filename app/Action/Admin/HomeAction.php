@@ -2,14 +2,14 @@
   namespace App\Action\Admin;
 
   class  HomeAction {
-      private $container;
+      private $contain;
 
       function __construct($container)    {
-        $this->container = $container;
+        $this->contain = $container;
       }
 
       function index($request, $response){
-          return $this->container->view->render($response, 'admin/home.phtml');
+          return $this->contain->view->render($response, 'admin/home.phtml');
       }
 
 

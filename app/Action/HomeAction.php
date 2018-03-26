@@ -1,29 +1,24 @@
 <?php
   namespace App\Action;
 
-  class  HomeAction {
-      private $container;
-
-      function __construct($container)    {
-        $this->container = $container;
-      }
+  class  HomeAction extends Action{
 
       function index($request, $response){
         $vars['page'] = "home";
 
-          return $this->container->view->render($response, 'template.phtml', $vars);
+          return $this->view->render($response, 'template.phtml', $vars);
       }
 
       function contato($request, $response){
         $vars['page'] = "contato";
 
-          return $this->container->view->render($response, 'template.phtml', $vars);
+          return $this->view->render($response, 'template.phtml', $vars);
       }
 
       function sobre($request, $response){
         $vars['page'] = "sobre";
 
-          return $this->container->view->render($response, 'template.phtml', $vars);
+          return $this->view->render($response, 'template.phtml', $vars);
       }
 
 
