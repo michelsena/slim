@@ -1,15 +1,12 @@
 <?php
   namespace App\Action\Admin;
 
-  class  HomeAction {
-      private $contain;
+  use App\Action\Action;
 
-      function __construct($container)    {
-        $this->contain = $container;
-      }
+  class  HomeAction extends Action {
 
       function index($request, $response){
-          return $this->contain->view->render($response, 'admin/home.phtml');
+          return $this->view->render($response, 'admin/home.phtml');
       }
 
 
