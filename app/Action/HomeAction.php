@@ -1,19 +1,20 @@
-<?php
-  namespace App\Action;
+<?php  namespace App\Action;
 
-  final class  HomeAction {
-      private $container;
+class  HomeAction {
+  protected $container;
 
-      function __construct($container)    {
-        $this->$container = $container;
-      }
+  function __construct($container)    {
+    $this->container = $container;
+  }
 
-      function index($request, $response){
-        $vars['page'] = "home";
-
-          return $this->$container->view->render($response, 'template.phtml', $vars);
+  function index($request, $response){
+      $vars['page'] = "home";
+      return $this->container->view->render($response, 'template.phtml', $vars);
         // $response = $this->$container->view->render($response, 'template.phtml', $vars);
          //return $response;
-      }
   }
- ?>
+
+
+
+}
+?>

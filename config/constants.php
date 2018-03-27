@@ -1,4 +1,4 @@
 <?php
   define('PREFIX', 'tutorialSlim3' );
-  define('PATH', 'https://localhost/apps/slim' );
+  define('PATH', 'http://localhost/apps/slim' );
  ?>
