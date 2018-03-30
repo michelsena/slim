@@ -17,9 +17,11 @@ class AuthMiddleware{
      */
     public function __invoke($request, $response, $next)
     {
-        $response->getBody()->write('Antes');
+        if (!isset($_SESSION[PREFIX . "logado"])) {
+          return $response->withRedirect(PATH . "/admin/login");//confirmar se o caminho chega no arquivo
+        }
+
         $response = $next($request, $response);
-        $response->getBody()->write('Depois');
 
         return $response;
     }
