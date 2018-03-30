@@ -6,7 +6,7 @@
   class  HomeAction extends Action {
 
       function index($request, $response){
-          return $this->view->render($response, 'admin/login/login.phtml');
+          return $this->view->render($response, 'admin/home.phtml');
       }
 
 

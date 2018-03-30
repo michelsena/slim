@@ -1,7 +1,6 @@
 <?php
   //AREA DO ADMIN DO SITE
-  $app->get('/admin', 'App\Action\Admin\HomeAction:index');
-
+  $app->get('/admin', 'App\Action\Admin\HomeAction:index')->add(App\Middleware\Admin\AuthMiddleware::class);
 
   //AREA DO SITE
   $app->get('/', 'App\Action\HomeAction:index');
