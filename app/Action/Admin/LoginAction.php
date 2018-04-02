@@ -10,6 +10,12 @@
           return $this->view->render($response, 'admin/login/login.phtml');
       }
 
+      function logar($request, $response){
+          if (condition) {
+            # code...
+          }
+      }
+
 
 
 
