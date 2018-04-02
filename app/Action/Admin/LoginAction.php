@@ -11,9 +11,16 @@
       }
 
       function logar($request, $response){
-          if (condition) {
+          /**/$dados = $request->getBody();
+          $nome_usuario = //filtra valores primeiro 
+          $senha = //filtra valores primeiro
+          /**/
+
+        if (/*testa os campos se são vazios */ ) {
             # code...
-          }
+          }else{
+
+        }
       }
 
 
