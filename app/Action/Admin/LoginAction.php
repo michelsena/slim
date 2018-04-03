@@ -11,16 +11,22 @@
       }
 
       function logar($request, $response){
-          /**/$dados = $request->getBody();
-          $nome_usuario = //filtra valores primeiro 
-          $senha = //filtra valores primeiro
           /**/
+          //$response->getBody()->write("Valor da val dados: ".$dados);
+          $dados = $request->getBody();
+          /**/
+          $email = strip_tags(filter_var($dados["email"]) );//filtra valores e tira as tags
+          $senha = strip_tags(filter_var($dados["senha"]) );//filtra valores primeiro
+          /* */
 
-        if (/*testa os campos se são vazios */ ) {
-            # code...
-          }else{
+          if ($email != '' && $senha != '' ) {/*testa os campos se são vazios */
+              # conecta com o banco
+            }else{
+                //mostrar uma mensagem dizendo para preencher todos os campos
+                return $this->view->render($response, 'admin/login/login.phtml');
 
-        }
+          }
+          /**/
       }
 
 
