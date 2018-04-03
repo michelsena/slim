@@ -20,9 +20,9 @@
           /* */
 
           if ($email != '' && $senha != '' ) {/*testa os campos se são vazios */
-              # conecta com o banco
+              # acesso ao banco
             }else{
-                //mostrar uma mensagem dizendo para preencher todos os campos
+                $vars["erro"] = "É preciso preencher todos os campos";
                 return $this->view->render($response, 'admin/login/login.phtml');
 
           }
