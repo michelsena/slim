@@ -13,7 +13,7 @@ $app = new \Slim\App(['settings' => $config]);
 
 $container = $app->getContainer();
 
-$container['view'] = new \Slim\Views\PhpRenderer('resouces/views/');//seta um uma classe de view (precisa instalar);
+$container['view'] = new \Slim\Views\PhpRenderer('resouces/views/');//seta uma classe de view (precisa instalar);
 
 $container['db'] = function ($c) {
     $db = $c['settings']['db'];

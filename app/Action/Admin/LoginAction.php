@@ -28,6 +28,7 @@
 
               if ($verificarNoBanco->rowCount() > 0) {
                 $_SESSION[PREFIX . "logaddo"] = true;
+
                 return $response->withRedirect(PATH . "/admin");
               }
 
