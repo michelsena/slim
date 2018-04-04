@@ -21,6 +21,16 @@
 
           if ($email != '' && $senha != '' ) {/*testa os campos se são vazios */
               # acesso ao banco
+              $verificarNoBanco = $this->db;
+              $sql = "select * from usuarios where email = ? and senha = ?";
+              $verificarNoBanco->prepare($sql);
+              $verificarNoBanco->execute( array($email, $senha) );
+
+              if ($verificarNoBanco->rowCount() > 0) {
+                $_SESSION[PREFIX . "logaddo"] = true;
+                return $response->withRedirect(PATH . "/admin");
+              }
+
             }else{
                 $vars["erro"] = "É preciso preencher todos os campos";
                 return $this->view->render($response, 'admin/login/login.phtml');
