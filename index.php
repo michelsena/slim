@@ -3,7 +3,7 @@
 //use \Psr\Http\Message\ResponseInterface as Response;
 //error_reporting(E_ALL | E_STRICT);
 //ini_set('display_errors','On');
-
+session_start();
 require 'vendor/autoload.php';
 require 'config/config.php';
 require 'config/constants.php';

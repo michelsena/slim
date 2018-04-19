@@ -1,4 +1,6 @@
-Testan a Git
+--> aula 9
+3:03 login correto
+5:08 onde parei
 
 --> Para fazer
 * comparar a função do get '/' do index_3_c_template com o index atual

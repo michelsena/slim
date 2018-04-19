@@ -52,7 +52,14 @@
   </head>
   <body>
     <div class="container" Action="<?= PATH ?>/admin/login/logar" method="POST">
-      <form class="form-signin">
+      
+      <?php if ( isset($erro) ) { ?>
+          <div class="alert alert-danger">
+            <?= $erro?>
+          </div>
+      <?php } ?>
+
+      <form class="form-signin" action="<?= PATH ?>/admin/login" method="POST">
         <h2 class="form-signin-heading"> Faça seu login </h2>
         <label for="inputEmail" class="sr-only"> Endereço de e-mail </label>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus>
