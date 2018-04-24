@@ -6,7 +6,8 @@
   class  HomeAction extends Action {
 
       function index($request, $response){
-          return $this->view->render($response, 'admin/home.phtml');
+          $vars["page"] = "home";
+          return $this->view->render($response, 'admin/template.phtml', $vars);
       }
 
 

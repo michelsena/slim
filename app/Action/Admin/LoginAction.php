@@ -7,12 +7,15 @@
   class  LoginAction extends Action {
 
       function index($request, $response){
+          if (isset($_SESSION[PREFIX . "logado"])) {
+            return $response->withRedirect(PATH . "/admin");
+          }
+
           return $this->view->render($response, 'admin/login/login.phtml');
       }
 
       function logar($request, $response){
           /**/
-          //$response->getBody()->write("Valor da val dados: ".$dados);
           $dados = $request->getParsedBody();
           /* */
           $email = strip_tags(filter_var($dados["email"]) );//filtra valores e tira as tags
@@ -40,9 +43,14 @@
                 return $this->view->render($response, 'admin/login/login.phtml', $vars);
 
           }
-          /**/
       }
 
+      function logout($request, $response){
+          unset($_SESSION[PREFIX . "logado"]);
+          session_destroy();
+
+          return $response->withRedirect(PATH . "/admin/login");;
+      }
 
 
 

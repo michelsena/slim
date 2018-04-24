@@ -16,3 +16,18 @@ Esses aí, por exemplo, são guardados no namespace?
 
 * no index, a variável container é um vetor com as propriedades do obj $app?
 
+
+--> links
+Link geral das aulas
+https://www.youtube.com/channel/UCtCA9irhXe7_6QuHvoP0N0A/videos
+
+https://www.slimframework.com/docs/v3/cookbook/database-eloquent.html
+https://akrabat.com/using-testing-eloquent-in-slim-framework/
+http://www.dontpad.com/michelsena
+
+
+
+Instalação manual do Slim FrameWork
+http://rberaldo.com.br/composer-php/
+
+

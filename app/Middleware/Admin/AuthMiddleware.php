@@ -15,10 +15,8 @@ class AuthMiddleware{
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function __invoke($request, $response, $next)
-    {
+    public function __invoke($request, $response, $next)   {
         if (!isset($_SESSION[PREFIX . "logado"])) {
-          // echo "<br>Teste";
           return $response->withRedirect(PATH . "/admin/login");//confirmar se o caminho chega no arquivo
         }
 
