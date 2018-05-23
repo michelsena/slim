@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <title> Área Administrativa </title>
+    <title> <?= ( isset($title) )? $title:"Área Administrativa"  ?> </title>
   </head>
   <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -23,8 +23,8 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-              <li><a href="#"> Postagens </a></li>
+              <li class="active"><a href="<?= PATH ?>/admin">Home <span class="sr-only">(current)</span></a></li>
+              <li><a href="<?= PATH ?>/admin/posts"> Postagens </a></li>
               <li><a href="#"> Usuários </a></li>
             </ul>
 

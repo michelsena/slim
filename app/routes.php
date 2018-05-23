@@ -3,10 +3,17 @@
   $app->get('/admin/login', 'App\Action\Admin\loginAction:index');
   $app->post('/admin/login', 'App\Action\Admin\loginAction:logar');//arrumar a URL e o método
   $app->get('/admin/logout', 'App\Action\Admin\loginAction:logout');//arrumar a URL e o método
-  $app->get('/admin', 'App\Action\Admin\HomeAction:index')->add(App\Middleware\Admin\AuthMiddleware::class);
+  //$app->get('/admin', 'App\Action\Admin\HomeAction:index')->add(App\Middleware\Admin\AuthMiddleware::class);
+/**/
+  $app->group('/admin', function (){
+        $this->get('', 'App\Action\Admin\HomeAction:index');
 
-  $app->get('/admin/postagens', 'App\Action\Admin\PostAction:posts');//arrumar a URL e o método
-  $app->get('/admin/usuarios', 'App\Action\Admin\PostAction:users');//arrumar a URL e o método
+        //POSTS
+         $this->get('/posts', 'App\Action\Admin\PostAction:index');
+    }
+  )->add(App\Middleware\Admin\AuthMiddleware::class);
+/**/
+
 
   //AREA DO SITE
   $app->get('/', 'App\Action\HomeAction:index');

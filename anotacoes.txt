@@ -1,20 +1,27 @@
---> aula 9
-3:03 login correto
-5:08 onde parei
+-------------------------------------------> CORREÃ‡Ã•ES
+--> POR FAZER
+* nas rotas trocar a palavra postagens por posts
+* ver qual o nome da pasta dos posts
+* relembrar por que se coloca linha namespace nas action
+
+--> FEITAS
+* colocar a home no  Admin
+* direcionar o index do post action  para a listagem
+* no header colocar php, para quando a variÃ¡vel existir, mostrar seu valor
 
 --> Para fazer
-* comparar a função do get '/' do index_3_c_template com o index atual
+* comparar a funï¿½ï¿½o do get '/' do index_3_c_template com o index atual
 
---> Dúvidas
+--> Dï¿½vidas
 * dados os seguintes caminhos
 \Slim\App
 \Slim\Views\PhpRenderer
 
-* O que os métodos get de app fazem?
+* O que os mï¿½todos get de app fazem?
 
-Esses aí, por exemplo, são guardados no namespace?
+Esses aï¿½, por exemplo, sï¿½o guardados no namespace?
 
-* no index, a variável container é um vetor com as propriedades do obj $app?
+* no index, a variï¿½vel container ï¿½ um vetor com as propriedades do obj $app?
 
 
 --> links
@@ -27,7 +34,5 @@ http://www.dontpad.com/michelsena
 
 
 
-Instalação manual do Slim FrameWork
+Instalaï¿½ï¿½o manual do Slim FrameWork
 http://rberaldo.com.br/composer-php/
-
-
