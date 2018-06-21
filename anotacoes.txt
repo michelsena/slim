@@ -1,3 +1,7 @@
+﻿--> PARA FAZER
+* Ver se do cadastro da aula funcionou, por que não é usado a subrotina strip_tags() 
+
+
 -------------------------------------------> CORREÇÕES
 --> POR FAZER
 * nas rotas trocar a palavra postagens por posts
@@ -12,7 +16,7 @@
 --> Para fazer
 * comparar a fun��o do get '/' do index_3_c_template com o index atual
 
---> D�vidas
+-------------------------------------------> D�vidas
 * dados os seguintes caminhos
 \Slim\App
 \Slim\Views\PhpRenderer

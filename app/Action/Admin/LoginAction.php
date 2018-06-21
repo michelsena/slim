@@ -15,11 +15,11 @@
       }
 
       function logar($request, $response){
-          /**/
+
           $dados = $request->getParsedBody();
-          /* */
+
           $email = strip_tags(filter_var($dados["email"]) );//filtra valores e tira as tags
-          $senha = strip_tags(filter_var($dados["senha"]) );//filtra valores primeiro
+          $senha = strip_tags(filter_var($dados["senha"]) );
           /* */
 
           if ($email != '' && $senha != '' ) {/*testa os campos se são vazios */
@@ -34,6 +34,7 @@
                   return $response->withRedirect(PATH . "/admin");
                 }else {
                   $vars["erro"] = "Informações do usuário não encontradas...";
+                  // Aqui é preciso usar o render() por causa que é passado variável?
                   return $this->view->render($response, 'admin/login/login.phtml', $vars);
               }
 
