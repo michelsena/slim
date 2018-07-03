@@ -18,15 +18,26 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td> Título de Postagem qualquer </td>
-                            <td>
+                            <?php if(isset($posts) ): foreach ($posts as $post): ?>
+                                      <tr>
+                                          <td><?= $post->id     ?></td>
+                                          <td><?= $post->titulo ?></td>
+                                          <td>
+                                              <a class="btn btn-info"    href="<?= PATH ?>/admin/posts/<?= $post->id ?>/view"> Visualizar </a>
+                                              <a class="btn btn-warning" href="<?= PATH ?>/admin/posts/<?= $post->id ?>/edit">   Editar </a>
+                                              <a class="btn btn-danger"  href="<?= PATH ?>/admin/posts/<?= $post->id ?>/delete"> Excluir </a>
+                                          </td>
+                                      </tr>
+                            <?php  endforeach; endif; ?>
+                            <!-- <tr>
+                              <td>1</td>
+                              <td> Título de Postagem qualquer </td>
+                              <td>
                                 <a class="btn btn-info"    href="#"> Visualizar </a>
                                 <a class="btn btn-warning" href="#"> Editar     </a>
                                 <a class="btn btn-danger"  href="#"> Excluir    </a>
-                            </td>
-                          </tr>
+                              </td>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>

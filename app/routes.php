@@ -11,6 +11,12 @@
          $this->get('/posts', 'App\Action\Admin\PostAction:index');
          $this->get('/posts/add', 'App\Action\Admin\PostAction:add');
          $this->post('/posts/add', 'App\Action\Admin\PostAction:story');
+
+         $this->get('/posts/{id}/edit', 'App\Action\Admin\PostAction:edit');
+         $this->post('/posts/{id}/edit', 'App\Action\Admin\PostAction:update');
+
+         $this->get('/posts/{id}/delete', 'App\Action\Admin\PostAction:delete');
+         $this->get('/posts/{id}/view', 'App\Action\Admin\PostAction:view');
     }
   )->add(App\Middleware\Admin\AuthMiddleware::class);
 

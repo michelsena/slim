@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h2> Novo Post </h2>
+      <h2> Edição de Post </h2>
 
       <div class="panel panel-default">
           <div class="panel-heading">
@@ -15,18 +15,18 @@
           </div>
           <div class="panel-body">
             <!-- se tivesse upload de imagem, seria preciso colocar mais um atributo -->
-            <form action="<?= PATH ?>/admin/posts/add" method="post">
+            <form action="<?= PATH ?>/admin/posts/<?=$post->id?>/edit" method="post">
                 <div class="form-group">
                   <label for="titulo"> Título </label>
-                  <input type="text" class="form-control" id="titulo" name="titulo" placeholder="título">
+                  <input type="text" class="form-control" id="titulo" name="titulo" placeholder="título" value="<?= $post->titulo  ?>">
                 </div>
 
                 <div class="form-group">
                   <label for="descricao"> Descrição </label>
-                  <textarea class="form-control" id="descricao" name="descricao" rows="3" placeholder="descrição"/> </textarea>
+                  <textarea class="form-control" id="descricao" name="descricao" rows="3" placeholder="descrição" /><?= $post->descricao  ?></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-default"> Cadastrar </button>
+                <button type="submit" class="btn btn-default"> Atualizar </button>
             </form>
           </div>
 

@@ -31,7 +31,7 @@
               if ($verificarNoBanco->rowCount() > 0) {
                   $_SESSION[PREFIX . "logado"] = true;
 
-                  return $response->withRedirect(PATH . "/admin");
+                  return $response->withRedirect(PATH . "/admin/posts");
                 }else {
                   $vars["erro"] = "Informações do usuário não encontradas...";
                   // Aqui é preciso usar o render() por causa que é passado variável?
@@ -42,7 +42,6 @@
                 //instruções de segurança
                 $vars["erro"] = "É preciso preencher todos os campos";
                 return $this->view->render($response, 'admin/login/login.phtml', $vars);
-
           }
       }
 

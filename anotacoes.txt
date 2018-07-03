@@ -1,5 +1,5 @@
 ﻿--> PARA FAZER
-* Ver se do cadastro da aula funcionou, por que não é usado a subrotina strip_tags() 
+* ver como eu estraia a pesquisa do result e estudar a conversão para objetos
 
 
 -------------------------------------------> CORREÇÕES
