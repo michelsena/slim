@@ -1,4 +1,7 @@
 ﻿--> PARA FAZER
+* juntar os desenvolvimento\Slim\anotações.txt com esse arquivo
+* relembrar como os obj das action são criados
+
 * ver como eu estraia a pesquisa do result e estudar a conversão para objetos
 
 

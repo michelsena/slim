@@ -1,7 +1,8 @@
 {
     "require": {
         "slim/slim": "^3.9",
-        "slim/php-view": "^2.2"
+        "slim/php-view": "^2.2",
+        "illuminate/database": "~5.1"
     },
 
     "autoload": {
