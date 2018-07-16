@@ -4,6 +4,7 @@
   $app->post('/admin/login', 'App\Action\Admin\loginAction:logar');//arrumar a URL e o método
   $app->get('/admin/logout', 'App\Action\Admin\loginAction:logout');//arrumar a URL e o método
 
+/*
   $app->group('/admin', function (){
         $this->get('', 'App\Action\Admin\HomeAction:index');
 
@@ -19,6 +20,11 @@
          $this->get('/posts/{id}/view', 'App\Action\Admin\PostAction:view');
     }
   )->add(App\Middleware\Admin\AuthMiddleware::class);
+*/
+
+  $app->get('/admin/posts', 'App\Action\Admin\PostAction:index');
+  $app->get('/admin/posts/add', 'App\Action\Admin\PostAction:add');
+  $app->post('/admin/posts/add', 'App\Action\Admin\PostAction:story');
 
 
   //AREA DO SITE

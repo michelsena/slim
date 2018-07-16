@@ -2,19 +2,23 @@
   namespace App\Action\Admin;
 
   use App\Action\Action;
+  use Illuminate\Database\Capsule\Manager as DB;
+  //colocar um use (acho) elemento do Eloquent
 
   class  PostAction extends Action {
 
       function index($request, $response){
           $vars["page"]  = "posts/list";
           $vars["title"] = "Postagens";
-
+          /*
           $sql = "SELECT id, titulo FROM posts";
 
           $verificarNoBanco = $this->db->prepare($sql);
           $verificarNoBanco->execute();
-
           $vars["posts"] = $verificarNoBanco->fetchAll(\PDO::FETCH_OBJ);//extração da pesquisa e conversão em objetos
+          */
+
+          $vars["posts"] = DB::table("posts")->get();//tem que ver se a pesquisa tá como obj's ou outra estrutura
 
           return $this->view->render($response, 'admin/template.phtml', $vars);
       }
@@ -30,14 +34,21 @@
           $vars["title"] = "Incluir Postagem";
 
           $dados     = $request->getParsedBody();
-          $titulo    = filter_var($dados["titulo"]);
-          $descricao = filter_var($dados["descricao"]);
+          $titulo    = trim( filter_var($dados["titulo"]) );
+          $descricao = trim( filter_var($dados["descricao"]) );
 
           if ($titulo != "" && $descricao != "") {
+            $dados["titulo"] = $titulo;
+            $dados["descricao"] = $descricao;
+
+            /*
               $sql = "INSERT INTO posts (titulo, descricao) VALUES(?, ?)";
 
               $verificarNoBanco = $this->db->prepare($sql);
               $verificarNoBanco->execute( array($titulo, $descricao) );
+            */
+
+              DB::table("posts")->insert($dados);//tem que ver se a pesquisa tá como obj's ou outra estrutura
 
               return $response->withRedirect(PATH . "/admin/posts");
           }

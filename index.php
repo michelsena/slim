@@ -8,13 +8,12 @@ require 'vendor/autoload.php';
 require 'config/config.php';
 require 'config/constants.php';
 
-
-$app = new \Slim\App(['settings' => $config]);
+$app = new \Slim\App($config);
 
 $container = $app->getContainer();
 
 $container['view'] = new \Slim\Views\PhpRenderer('resouces/views/');//seta uma classe de view (precisa instalar);
-
+/*
 $container['db'] = function ($c) {
     $db = $c['settings']['db'];
     $pdo = new PDO('mysql:host=' . $db['host'] . ';dbname=' . $db['dbname'], $db['user'], $db['pass']);
@@ -22,6 +21,14 @@ $container['db'] = function ($c) {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
 };
+*/
+
+$capsule = new Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container->get('settings')['db']);
+$capsule->bootEloquent();
+
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
 
 require 'app/routes.php';
 
