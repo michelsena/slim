@@ -64,21 +64,27 @@
 
           $id = $request->getAttribute('id');
 
-          //Ccondição caso venha alguma coisa diferente de número no $id
-          if (! is_numeric($id)/*$id não for numérico */) {
+          /*
+          //Condição caso venha alguma coisa diferente de número no $id. Talvez não vai ser mais preciso por causa da restrição na rota
+          if (! is_numeric($id)/*$id não for numérico * /) {
               return $response->withRedirect(PATH . "/admin/posts");
-          }
+          }* /
 
           $sql = "SELECT * FROM posts WHERE id=?";
 
           $post = $this->db->prepare($sql);
           $post->execute( array($id) );
 
-          if ($post->rowCount() == 0) {
+          if ($post->rowCount() == 0) {*/
+
+          $post = DB::table("posts")->where("id", $id)->first();
+
+          if (! $post) {
             return $response->withRedirect(PATH . "/admin/posts");
           }
 
-          $vars["post"] = $post->fetch(\PDO::FETCH_OBJ);//extração da pesquisa e conversão em objeto
+          //$vars["post"] = $post->fetch(\PDO::FETCH_OBJ);//extração da pesquisa e conversão em objeto
+          $vars["post"] = $post;//já está convertido para objeto
 
           return $this->view->render($response, 'admin/template.phtml', $vars);
       }

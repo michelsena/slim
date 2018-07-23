@@ -1,10 +1,13 @@
 <?php
 //use \Psr\Http\Message\ServerRequestInterface as Request;
 //use \Psr\Http\Message\ResponseInterface as Response;
-//error_reporting(E_ALL | E_STRICT);
-//ini_set('display_errors','On');
+use Illuminate\Database\Capsule\Manager;
+error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors','On');
+
 session_start();
 require 'vendor/autoload.php';
+// require 'database.php';
 require 'config/config.php';
 require 'config/constants.php';
 
@@ -29,7 +32,7 @@ $capsule->bootEloquent();
 
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
-
+/**/
 require 'app/routes.php';
 
 $app->run();
