@@ -20,7 +20,7 @@ class AuthMiddleware{
           return $response->withRedirect(PATH . "/admin/login");//confirmar se o caminho chega no arquivo
         }
 
-        $response = $next($request, $response);//???
+        $response = $next($request, $response);//Que estrutura é essa?? É uma variável que guarda uma função?
 
         return $response;
     }

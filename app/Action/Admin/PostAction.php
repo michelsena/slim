@@ -93,20 +93,27 @@
           $vars["title"] = "Edição de Postagem";
 
           $dados     = $request->getParsedBody();
-          $titulo    = filter_var($dados["titulo"]);
-          $descricao = filter_var($dados["descricao"]);
+          $titulo    = trim( filter_var($dados["titulo"])    );
+          $descricao = trim( filter_var($dados["descricao"]) );
 
           $id        = $request->getAttribute("id");
-
-          if (! is_numeric($id)/*$id não for numérico */) {
+/*        //Condição caso venha alguma coisa diferente de número no $id. Talvez não vai ser mais preciso por causa da restrição na rota
+          if (! is_numeric($id)/*$id não for numérico * /) {
               return $response->withRedirect(PATH . "/admin/posts");
           }
+*/
 
           if ($titulo != "" && $descricao != "") {
+            /*
               $sql = "UPDATE posts SET titulo=?, descricao=? WHERE id=?";
 
               $atualizar = $this->db->prepare($sql);
               $atualizar->execute( array($titulo, $descricao, $id) );
+            */
+              $dados["titulo"] = $titulo;
+              $dados["descricao"] = $descricao;
+
+              DB::table("posts")->where("id", $id)->update($dados);
 
               return $response->withRedirect(PATH . "/admin/posts");
           }
@@ -119,19 +126,28 @@
       function delete($request, $response){
           $id = $request->getAttribute('id');
 
-          //Ccondição caso venha alguma coisa diferente de número no $id
-          if (! is_numeric($id)/*$id não for numérico */) {
+          /*Condição caso venha alguma coisa diferente de número no $id. Talvez não vai ser mais preciso por causa da restrição na rota
+          if (! is_numeric($id)/*$id não for numérico * /) {
               return $response->withRedirect(PATH . "/admin/posts");
           }
-
+          /*
           $sql = "DELETE FROM posts WHERE id=?";
 
           $post = $this->db->prepare($sql);
           $post->execute( array($id) );
+          */
+          $post = DB::table("posts")->where("id", $id)->first();
+
+          if (! $post) {
+            return $response->withRedirect(PATH . "/admin/posts");
+          }
+
+          DB::table("posts")->where("id", $id)->delete();
 
           return $response->withRedirect(PATH . "/admin/posts");
       }
 
+      //Colocar o Eloquent
       function view($request, $response){
           $vars["page"]  = "posts/view";
           $vars["title"] = "Visualização de Postagem";

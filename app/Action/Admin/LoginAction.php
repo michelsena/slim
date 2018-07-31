@@ -2,6 +2,7 @@
   namespace App\Action\Admin;
 
   use App\Action\Action;
+  use Illuminate\Database\Capsule\Manager as DB;
 
   //modificar a localização desse arquivo
   class  LoginAction extends Action {
@@ -18,17 +19,24 @@
 
           $dados = $request->getParsedBody();
 
-          $email = strip_tags(filter_var($dados["email"]) );//filtra valores e tira as tags
-          $senha = strip_tags(filter_var($dados["senha"]) );
-          /* */
+          $email = trim(strip_tags(filter_var($dados["email"]) ) );//filtra valores e tira as tags
+          $senha = trim(strip_tags(filter_var($dados["senha"]) ) );
 
           if ($email != '' && $senha != '' ) {/*testa os campos se são vazios */
-              // acesso ao banco
+              /* acesso ao banco
               $sql = "select * from usuarios where email = ? and senha = ?";
               $verificarNoBanco = $this->db->prepare($sql);
               $verificarNoBanco->execute( array($email, $senha) );
+              */
+              $usuario = DB::table("usuarios")->
+                  where([
+                          //experimentar se dá certo sem os operador '='
+                          ['email', '=', $email],
+                          ['subscribed', '=', $senha],
+                  ])->first();
 
-              if ($verificarNoBanco->rowCount() > 0) {
+              //if ($verificarNoBanco->rowCount() > 0) {
+              if ($usuario) {
                   $_SESSION[PREFIX . "logado"] = true;
 
                   return $response->withRedirect(PATH . "/admin/posts");

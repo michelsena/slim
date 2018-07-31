@@ -27,7 +27,7 @@ $container['db'] = function ($c) {
 */
 
 $capsule = new Illuminate\Database\Capsule\Manager;
-$capsule->addConnection($container->get('settings')['db']);
+$capsule->addConnection($container->get('settings')['db']);//Talvez e estrutura de dados que esse método retorno sejo o vetor settings
 $capsule->bootEloquent();
 
 $capsule->setAsGlobal();
