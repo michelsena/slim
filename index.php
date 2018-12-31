@@ -7,7 +7,7 @@ ini_set('display_errors','On');
 
 session_start();
 require 'vendor/autoload.php';
-// require 'database.php';
+//require 'database.php';
 require 'config/config.php';
 require 'config/constants.php';
 
@@ -27,7 +27,7 @@ $container['db'] = function ($c) {
 */
 
 $capsule = new Illuminate\Database\Capsule\Manager;
-$capsule->addConnection($container->get('settings')['db']);//Talvez e estrutura de dados que esse método retorno sejo o vetor settings
+$capsule->addConnection($container->get('settings')['db']);//Manda o array db para o container
 $capsule->bootEloquent();
 
 $capsule->setAsGlobal();

@@ -2,7 +2,9 @@
     "require": {
         "slim/slim": "^3.9",
         "slim/php-view": "^2.2",
-        "illuminate/database": "~5.1"
+        "illuminate/database": "~5.1",
+        "willvincent/laravel-rateable": "^1.07",
+        "prettus/l5-repository": "^2.6"
     },
 
     "autoload": {

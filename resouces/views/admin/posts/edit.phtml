@@ -18,6 +18,7 @@
             <form action="<?= PATH ?>/admin/posts/<?=$post->id?>/edit" method="post">
                 <div class="form-group">
                   <label for="titulo"> Título </label>
+                  <!-- Talvez não esteja exibindo todos o valor do campo por causa de uma limitação do HTML -->
                   <input type="text" class="form-control" id="titulo" name="titulo" placeholder="título" value="<?= $post->titulo  ?>">
                 </div>
 

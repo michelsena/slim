@@ -1,30 +1,29 @@
-﻿--> PARA FAZER
-* ver como eu estraia a pesquisa do result e estudar a conversão para objetos
+﻿
 
-
--------------------------------------------> CORREÇÕES
---> POR FAZER
-* nas rotas trocar a palavra postagens por posts
-* ver qual o nome da pasta dos posts
-* relembrar por que se coloca linha namespace nas action
-
---> FEITAS
-* colocar a home no  Admin
-* direcionar o index do post action  para a listagem
-* no header colocar php, para quando a variável existir, mostrar seu valor
-
---> Para fazer
+--> PARA FAZER
 * comparar a fun��o do get '/' do index_3_c_template com o index atual
 
--------------------------------------------> D�vidas
+
+-------------------------------------------> BUGS
+* Na parte de consulta, no campo tíluto, não está mostrando todo valor do campo quando existe bastante caracteres. Talvez seja por causa de alguma limitação do HTML
+
+
+--> CORRIGIDOS
 
 
 
 
 
-* no index, a vari�vel container � um vetor com as propriedades do obj $app?
+-------------------------------------------> Duvidas
 
 
+--> secundárias
+* O app do autoLoad aponta para qual app?
+* no index, a variavel container eh um vetor com as propriedades do obj $app?
+
+--> Respondidas
+* Por que se coloca linha namespace nas action
+R.: Provavelmente para serem localizadas nas rotas
 
 
 

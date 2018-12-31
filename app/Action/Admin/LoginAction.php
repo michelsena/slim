@@ -32,7 +32,7 @@
                   where([
                           //experimentar se dá certo sem os operador '='
                           ['email', '=', $email],
-                          ['subscribed', '=', $senha],
+                          ['senha', '=', $senha],
                   ])->first();
 
               //if ($verificarNoBanco->rowCount() > 0) {

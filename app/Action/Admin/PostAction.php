@@ -75,7 +75,7 @@
           $post = $this->db->prepare($sql);
           $post->execute( array($id) );
 
-          if ($post->rowCount() == 0) {*/
+          if ($post->rowCount() == 0) {//O corpo desse if está no "if(! $post)" */
 
           $post = DB::table("posts")->where("id", $id)->first();
 
@@ -154,21 +154,29 @@
 
           $id = $request->getAttribute('id');
 
-          //Condição caso venha alguma coisa diferente de número no $id
-          if (! is_numeric($id)/*$id não for numérico */) {
+          /*Condição caso venha alguma coisa diferente de número no $id
+        if (! is_numeric($id)) {//$id não for numérico. Talvez não vai ser mais preciso por causa da restrição na rota
               return $response->withRedirect(PATH . "/admin/posts");
           }
 
           $sql = "SELECT * FROM posts WHERE id=?";
 
-          $post = $this->db->prepare($sql);
-          $post->execute( array($id) );
+          $post = $this->db->prepare($sql);//parece que o método prepare retorna um objeto parecido com um result
+          $post->execute( array($id) );//esse método parece retornar a consulta da tabela
 
           if ($post->rowCount() == 0) {
             return $response->withRedirect(PATH . "/admin/posts");
           }
 
           $vars["post"] = $post->fetch(\PDO::FETCH_OBJ);//extração da pesquisa e conversão em objeto
+          */
+          $post = DB::table("posts")->where("id", $id)->first();
+
+          if (! $post) {
+            return $response->withRedirect(PATH . "/admin/posts");
+          }
+
+            $vars["post"] = $post;//já está convertido para objeto
 
           return $this->view->render($response, 'admin/template.phtml', $vars);
       }
